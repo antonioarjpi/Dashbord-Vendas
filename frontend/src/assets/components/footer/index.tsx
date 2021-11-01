@@ -10,12 +10,12 @@ function Footer() {
         <footer id="myFooter">
             <div className="container">
                 <ul>
-                    <li><a href="https://programadorviking.com.br/">Informações da Empresa</a></li>
-                    <li><a href="https://programadorviking.com.br/">Contato</a></li>
-                    <li><a href="https://programadorviking.com.br/">Blog</a></li>
-                    <li><a href="https://bit.ly/front-end-curso-completo-promocao-01">Cursos</a></li>
+                    <li><a href="#">Informações da Empresa</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Cursos</a></li>
                 </ul>
-                <p className="footer-copyright">© 2019 Copyright - Programador Viking</p>
+                <p className="footer-copyright">© 2021 Copyright - SimpleDev</p>
             </div>
             <div className="footer-social">
                 <a href="https://github.com/antonioarjpi" className="social-icons"><img src={Github} alt="Github logo" className="fa fa-github" /></a>
