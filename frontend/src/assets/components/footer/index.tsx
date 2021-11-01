@@ -10,10 +10,8 @@ function Footer() {
         <footer id="myFooter">
             <div className="container">
                 <ul>
-                    <li><a href="#">Informações da Empresa</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Cursos</a></li>
+                    <li><a href="/">Informações da Empresa</a></li>
+                    <li><a href="/">Contato</a></li>
                 </ul>
                 <p className="footer-copyright">© 2021 Copyright - SimpleDev</p>
             </div>
