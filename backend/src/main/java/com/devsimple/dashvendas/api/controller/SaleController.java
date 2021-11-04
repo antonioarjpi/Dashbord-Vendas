@@ -2,6 +2,8 @@ package com.devsimple.dashvendas.api.controller;
 
 
 import com.devsimple.dashvendas.api.model.SaleDTO;
+import com.devsimple.dashvendas.api.model.SaleSucessDTO;
+import com.devsimple.dashvendas.api.model.SaleSumDTO;
 import com.devsimple.dashvendas.api.model.SellerDTO;
 import com.devsimple.dashvendas.domain.service.SaleService;
 import com.devsimple.dashvendas.domain.service.SellerService;
@@ -25,6 +27,16 @@ public class SaleController {
     @GetMapping
     public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable){
         Page<SaleDTO> list = saleService.findAll(pageable);
+        return ResponseEntity.ok(list);
+    }
+    @GetMapping("/sum-by-seller")
+    public ResponseEntity<List<SaleSumDTO>> amountGroupedBySeller(){
+        List<SaleSumDTO> list = saleService.amountGroupedBySeller();
+        return ResponseEntity.ok(list);
+    }
+    @GetMapping("/sucess-by-seller")
+    public ResponseEntity<List<SaleSucessDTO>> sucessGroupedBySeller(){
+        List<SaleSucessDTO> list = saleService.sucessGroupedBySeller();
         return ResponseEntity.ok(list);
     }
 }

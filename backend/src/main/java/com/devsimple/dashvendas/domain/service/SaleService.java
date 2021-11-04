@@ -1,6 +1,8 @@
 package com.devsimple.dashvendas.domain.service;
 
 import com.devsimple.dashvendas.api.model.SaleDTO;
+import com.devsimple.dashvendas.api.model.SaleSucessDTO;
+import com.devsimple.dashvendas.api.model.SaleSumDTO;
 import com.devsimple.dashvendas.domain.model.Sale;
 import com.devsimple.dashvendas.domain.repository.SaleRepository;
 import com.devsimple.dashvendas.domain.repository.SellerRepository;
@@ -28,6 +30,16 @@ public class SaleService {
         Page<Sale> result = saleRepository.findAll(pageable);
         return  result
                 .map(x -> new SaleDTO(x));
+    }
+
+    @Transactional
+    public List<SaleSumDTO> amountGroupedBySeller(){
+        return saleRepository.amountGroupedBySeller();
+    }
+
+    @Transactional
+    public List<SaleSucessDTO> sucessGroupedBySeller(){
+        return saleRepository.sucessGroupedBySeller();
     }
 }
 
