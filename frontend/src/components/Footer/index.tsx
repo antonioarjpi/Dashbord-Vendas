@@ -1,8 +1,9 @@
-import 'assets/components/footer/footer-white.css'
-import Github from 'assets/components/img/github_icon.png'
-import Gmail from 'assets/components/img/gmail_icon.png'
-import Whatsapp from 'assets/components/img/whatsapp_icon.png'
-import Linkdin from 'assets/components/img/linkedin_icon.png'
+// import 'assets/components/footer/footer-white.css'
+import 'components/Footer/footer-white.css'
+import Github from 'components/img/github_icon.png'
+import Gmail from 'components/img/gmail_icon.png'
+import Whatsapp from 'components/img/whatsapp_icon.png'
+import Linkdin from 'components/img/linkedin_icon.png'
 
 function Footer() {
     return (
