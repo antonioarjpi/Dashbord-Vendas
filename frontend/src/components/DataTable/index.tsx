@@ -1,6 +1,29 @@
-function DataTable() {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { SalePage } from "types/sales";
+import { formatLocalDate } from "utils/format";
+import { BASE_URL } from "utils/request";
+
+const DataTable = () => {
+
+    const [page, setPage] = useState<SalePage>({
+        first: true,
+        last: true,
+        number: 0,
+        totalElements: 0,
+        totalPages: 0
+    });
+
+    useEffect(()=>{
+        axios.get(BASE_URL+'/sales?page=2&size=10&sort=date,desc')
+            .then(response => {
+                setPage(response.data);
+            });
+    },[])
+ 
+
     return (
-            <div className="table-responsive">
+        <div className="table-responsive">
             <table className="table table-striped table-sm">
             <thead>
                 <tr>
@@ -12,53 +35,19 @@ function DataTable() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>01/11/2021</td>
-                    <td>Barry Allen</td>
-                    <td>34</td>
-                    <td>25</td>
-                    <td>15017.00</td>
+                {page.content?.map(item => (
+                <tr key={item.id}>
+                <td>{formatLocalDate(item.date,"dd/MM/yyyy")}</td>
+                <td>{item.seller.name} </td>
+                <td> {item.visited} </td>
+                <td> {item.deals} </td>
+                <td> {item.amount.toFixed(2)} </td>
                 </tr>
-                <tr>
-                    <td>01/11/2021</td>
-                    <td>Eduardo Costa</td>
-                    <td>39</td>
-                    <td>35</td>
-                    <td>1700.00</td>
-                </tr>
-                <tr>
-                    <td>01/11/2021</td>
-                    <td>Weberson Santos</td>
-                    <td>30</td>
-                    <td>22</td>
-                    <td>10017.00</td>
-                </tr>
-                <tr>
-                    <td>01/11/2021</td>
-                    <td>Rony Adauto</td>
-                    <td>41</td>
-                    <td>37</td>
-                    <td>19087.00</td>
-                </tr>
-                <tr>
-                    <td>01/11/2021</td>
-                    <td>Lucas Santos</td>
-                    <td>20</td>
-                    <td>19</td>
-                    <td>11417.00</td>
-                </tr>
-                <tr>
-                    <td>01/11/2021</td>
-                    <td>Gustavo Henrique</td>
-                    <td>33</td>
-                    <td>33</td>
-                    <td>13019.00</td>
-                </tr>
-                
-                
-            </tbody>
+                ))}
+           </tbody>
+            
             </table>
-            </div>
+         </div>
     );
   }
   
