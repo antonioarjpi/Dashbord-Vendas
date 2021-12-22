@@ -1,8 +1,9 @@
 import axios from "axios";
-import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
 import { SalePage } from "types/sale";
 import { formatLocalDate } from "utils/format";
+
+import Pagination from 'components/Pagination/index';
 import { BASE_URL } from "utils/request";
 
 
@@ -19,10 +20,14 @@ const DataTable = () => {
     })
 
     useEffect(() => {
+        try{ 
         axios.get(`${BASE_URL}/sales?page=${activePage}&size=20&sort=date,desc`)
             .then(response => {
                 setPage(response.data);
-            });
+            });}catch (error) {
+                console.log("indefinido")
+            }
+            
     }, [activePage]);
 
     const changePage = (index: number) => {
@@ -43,16 +48,18 @@ const DataTable = () => {
                             <th>Valor</th>
                         </tr>
                     </thead>
-                    <tbody> {/**corpo da tabela */}
-                        {page.content?.map(item => (
+                    <tbody> 
+                        {page.content?.map(item=> (
                             <tr key={item.id}>
                                 <td>{formatLocalDate(item.date, "dd/MM/yyyy")}</td>
-                                <td>{item.selle}</td>
+                             
+                                <td>{item.seller.name}</td>
+
                                 <td>{item.visited}</td>
                                 <td>{item.deals}</td>
                                 <td>{item.amount.toFixed(2)}</td>
                             </tr>
-                        ))} {/**se o page.content não estiver vazio, ele fará um map */}
+                        ))}
                     </tbody>
                 </table>
             </div>
