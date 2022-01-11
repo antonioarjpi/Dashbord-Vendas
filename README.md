@@ -10,7 +10,9 @@ Preview:
 
 * [Java](https://www.java.com/pt-BR/)
 * [Spring Framework](https://spring.io/)
+* [PostgreSQL](https://www.postgresql.org/)
 * [React.Js](https://pt-br.reactjs.org/)
 * [ApexCharts](https://apexcharts.com/docs/react-charts/)
 * [Axios](https://axios-http.com/docs/intro)
 * [Visual Studio Code](https://code.visualstudio.com/)
+
